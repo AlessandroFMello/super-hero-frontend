@@ -45,6 +45,60 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   }
 
 
+  function onSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    const { value } = event.target;
+    setSuperHero({ ...superHero, universe: Number(value) });
+  }
+
+  function onNameChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+
+    const verifyExistance = verifyIfHeroExists(value);
+
+    if (!verifyExistance) {
+      setSuperHero({ ...superHero, name: value.toString() });
+      setMessage("")
+    }
+  }
+
+  function onUniverseNameChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+
+    const verifyExistance = verifyIfUniverseExists(value);
+
+    if (!verifyExistance) {
+      setNewUniverse({ ...newUniverse, universe: value.toString() });
+      setMessage("")
+    }
+  }
+
+  function onUrlChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+    setSuperHero({ ...superHero, image: value.toString() })
+  }
+
+  function verifyIfHeroExists(newHeroName: string) {
+    let verification = false
+    heroes.forEach((hero) => {
+      if (hero.name === newHeroName) {
+        setMessage("Super herói já existe no banco de dados")
+        verification = true
+      }
+    })
+    return verification;
+  }
+
+  function verifyIfUniverseExists(newUniverseName: string) {
+    let verification = false
+    universes.forEach((universe) => {
+      if (universe.universe === newUniverseName) {
+        setMessage("Universo já existe no banco de dados")
+        verification = true
+      }
+    })
+    return verification;
+  }
+
   useEffect(() => {
     getUniverses()
   }, [universes])
@@ -64,10 +118,32 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
     setFilteredHeroes,
     selectValue,
     setSelectValue,
+    register,
+    setRegister,
+    message,
+    setMessage,
+    isDisabled,
+    setIsDisabled,
+    onSelectChange,
+    onNameChange,
+    onUrlChange,
+    verifyIfHeroExists,
+    superHero,
+    setSuperHero,
+    newUniverse,
+    setNewUniverse,
+    onUniverseNameChange,
+    verifyIfUniverseExists,
+    isDisabledUniverse,
+    setIsDisabledUniverse,
     showHeroes,
     setShowHeroes,
     filteredUniverses,
     setFilteredUniverses,
+    addHero,
+    addUniverse,
+    setAddHero,
+    setAddUniverse,
   }
 
   return <AppContext.Provider value={ context }>{children}</AppContext.Provider>;

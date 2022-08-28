@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContextType, IHero } from '../@types/hero';
 import { AppContext } from '../context/AppProvider';
+import apiDelete from '../services/apiDelete';
 import apiGetAll from '../services/apiGetAll';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { BsPencilFill } from "react-icons/bs";
@@ -18,6 +19,13 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
     setEdit,
   } = useContext(AppContext)  as AppContextType;
   const { id, name, heroUniverse, image } = data as IHero;
+
+  const [deleteHero, setDeleteHero] = useState(false);
+
+  async function deleteSuperHero() {
+    await apiDelete(`heroes/${id}`)
+  }
+
   async function getSuperHero() {
     const hero = await apiGetAll(`heroes/${id}`)
     setSuperHero({
@@ -41,11 +49,16 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
 
   return (
     <>
+      {
+        !deleteHero ? (
           <div className="hero-card">
             <div className="menu-wrapper">
             <BsFillTrashFill
                 type="button"
                 className="menu-btn"
+                onClick={ () => {
+                  setDeleteHero(!deleteHero);
+                } }
               />
               <BsPencilFill
                 type='button'
@@ -66,6 +79,28 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
               { heroUniverse.universe }
           </div>
         </div>
+        ) : (
+          <div className="hero-card">
+            <h1>Deseja deletar o herói?</h1>
+            <div>
+              <button
+                type="button"
+                className="btn-styles"
+                onClick={ () => setDeleteHero(!deleteHero)}
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                className="btn-styles"
+                onClick={ () => deleteSuperHero() }
+              >
+                Deletar
+              </button>
+            </div>
+          </div>
+        )
+      }
     </>
   )
 }

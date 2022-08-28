@@ -20,6 +20,12 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
 } = useContext(AppContext)  as AppContextType;
   const { id, universe } = data as IUniverse;
 
+  const [universeToDelete, setUniverseToDelete] = useState(false);
+
+  async function deleteUniverse() {
+    await apiDelete(`universes/${id}`)
+  }
+
   async function getUniverse() {
     const universeToEdit = await apiGetAll(`universes/${id}`)
     setNewUniverse({ id: universeToEdit.id , universe: universeToEdit.universe });
@@ -38,6 +44,9 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
 
   return (
     <>
+
+      {
+        !universeToDelete ? (
           <div className="universe-card">
             <div></div>
             <div className="universe-name">{universe}</div>
@@ -45,6 +54,9 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
               <BsFillTrashFill
                   type="button"
                   className="menu-btn-universe"
+                  onClick={ () => {
+                    setUniverseToDelete(!universeToDelete)
+                  } }
                 />
               <BsPencilFill
                   type='button'
@@ -56,6 +68,30 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
                 />
             </div>
           </div>
+        ) : (
+          <div className="universe-card-delete">
+            <h1>Deseja deletar o universo?</h1>
+            <div>
+              <button
+                type="button"
+                className="btn-styles"
+                onClick={ () => {
+                  setUniverseToDelete(!universeToDelete)
+                }}
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                className="btn-styles"
+                onClick={ () => deleteUniverse() }
+              >
+                Deletar
+              </button>
+            </div>
+          </div>
+        )
+      }
     </>
   )
 }

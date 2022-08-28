@@ -31,6 +31,8 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   const [isDisabledUniverse, setIsDisabledUniverse] = useState<boolean>(true);
   const [showHeroes, setShowHeroes] = useState(true);
   const [filteredUniverses, setFilteredUniverses] = useState<IUniverse[]>([]);
+  const [edit, setEdit] = useState<boolean>(false);
+  const [editUniverse, setEditUniverse] = useState<boolean>(false);
   const [addHero, setAddHero] = useState<boolean>(false);
   const [addUniverse, setAddUniverse] = useState<boolean>(false);
 
@@ -140,6 +142,10 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
     setShowHeroes,
     filteredUniverses,
     setFilteredUniverses,
+    edit,
+    setEdit,
+    editUniverse,
+    setEditUniverse,
     addHero,
     addUniverse,
     setAddHero,

@@ -20,12 +20,16 @@ export default function SuperHeroPage() {
     showHeroes,
     filteredUniverses,
     superHero,
+    edit,
     onSelectChange,
     onNameChange,
     onUrlChange,
     isDisabled,
+    setEdit,
     newUniverse,
     onUniverseNameChange,
+    editUniverse,
+    setEditUniverse,
     register,
     isDisabledUniverse,
     message,
@@ -35,7 +39,135 @@ export default function SuperHeroPage() {
     setAddUniverse,
   } = useContext(AppContext) as AppContextType;
 
-  
+
+  async function onSubmitEdit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const updatedData = {
+      name:superHero.name,
+      universeId: superHero.universe,
+      imageUrl: superHero.image,
+    }
+
+    const updatedHero = await apiUpdate(updatedData, `heroes/${superHero.id}`);
+
+    if (updatedHero) {
+      window.location.reload();
+    }
+  }
+
+
+  async function onSubmitUniverseEdit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const updatedData = {
+      id: newUniverse.id,
+      universe: newUniverse.universe,
+    }
+
+    const updatedUniverse = await apiUpdate(updatedData, `universes/${newUniverse.id}`);
+
+    if (updatedUniverse) {
+      window.location.reload();
+    }
+  }
+
+  function renderHeroEditModal() {
+    return(
+      <section>
+      {
+        edit
+          && (
+            <form
+              className="modal-form"
+              onSubmit={ (e) => onSubmitEdit(e) }
+            >
+              <select
+                className="modal-styles"
+                onChange={ (e) => onSelectChange(e) }
+                value={ superHero.universe }
+              >
+                {
+                  universes.map((universe) => (
+                    <option
+                      key={universe.id}
+                      value={universe.id}
+                    >
+                      {universe.universe}
+                    </option>
+                  ))
+                }
+              </select>
+              <input
+                className="modal-styles"
+                type="text"
+                value={superHero.name}
+                onChange={ (e) => onNameChange(e) }
+                required
+              />
+              <input
+                className="modal-styles"
+                type="text"
+                value={superHero.image}
+                onChange={ (e) => onUrlChange(e) }
+                required
+              />
+              <button
+                className="modal-styles"
+                type='submit'
+                disabled={isDisabled}
+              >
+                Editar
+              </button>
+              <AiOutlineClose
+                className="close-modal-btn"
+                onClick={ () => setEdit(!edit) }
+              />
+            </form>
+          )
+        }
+      </section>
+    );
+  }
+
+  function renderUniverseEditModal() {
+    return (
+      <section >
+      {
+        editUniverse
+          && (
+            <>
+              <form
+                className="modal-form"
+                onSubmit={ (e) => onSubmitUniverseEdit(e) }
+              >
+                <input
+                  className="modal-styles"
+                  type="text"
+                  value={newUniverse.universe}
+                  onChange={ (e) => onUniverseNameChange(e) }
+                  required
+                />
+                <button
+                  className="modal-styles"
+                    type='submit'
+                    disabled={isDisabled}
+                  >
+                    Editar
+                </button>
+                <AiOutlineClose
+                    className="close-modal-btn"
+                    onClick={ () => setEditUniverse(!editUniverse) }
+                />
+              </form>
+            </>
+          )
+      }
+    </section>
+    );
+
+  }
+
 
   async function onSubmitHero(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -234,6 +366,8 @@ export default function SuperHeroPage() {
           </>
         )
       }
+      { renderHeroEditModal() }
+      { renderUniverseEditModal() }
       {
         (addHero || addUniverse) && registerRender() 
       }

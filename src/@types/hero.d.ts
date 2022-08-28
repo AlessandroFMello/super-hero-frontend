@@ -35,6 +35,8 @@ export type AppContextType = {
   newUniverse: IUniverse;
   showHeroes: boolean;
   filteredUniverses: IUniverse[];
+  edit: boolean;
+  editUniverse: boolean;
   addHero: boolean;
   addUniverse: boolean;
   setHasFilter: (filter: boolean) => void;
@@ -54,6 +56,8 @@ export type AppContextType = {
   setIsDisabledUniverse: (isDisabled: boolean) => void;
   setShowHeroes: (isDisabled: boolean) => void;
   setFilteredUniverses: (universes: IUniverse[]) => void;
+  setEdit: (edit: boolean) => void;
+  setEditUniverse: (edit: boolean) => void;
   setAddHero: (add: boolean) => void;
   setAddUniverse: (add: boolean) => void;
 };

@@ -12,6 +12,7 @@ interface BaseLayoutProps {
 
 const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
   const {
+    getData,
     setIsDisabled,
     superHero,
     setSuperHero,
@@ -46,6 +47,10 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
     }
     enableBtn();
   }, [superHero, setIsDisabled])
+
+  useEffect(() => {
+    getData()
+  }, [getData, deleteHero])
 
   return (
     <>

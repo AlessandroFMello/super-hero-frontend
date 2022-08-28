@@ -103,11 +103,11 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
 
   useEffect(() => {
     getUniverses()
-  }, [universes])
+  }, [])
 
   useEffect(() => {
     getData()
-  }, [heroes])
+  }, [])
 
   const context = {
     heroes,
@@ -150,6 +150,8 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
     addUniverse,
     setAddHero,
     setAddUniverse,
+    getData,
+    getUniverses,
   }
 
   return <AppContext.Provider value={ context }>{children}</AppContext.Provider>;

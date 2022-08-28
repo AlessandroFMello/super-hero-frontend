@@ -60,4 +60,6 @@ export type AppContextType = {
   setEditUniverse: (edit: boolean) => void;
   setAddHero: (add: boolean) => void;
   setAddUniverse: (add: boolean) => void;
+  getData: () => void;
+  getUniverses: () => void;
 };

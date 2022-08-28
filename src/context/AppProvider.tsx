@@ -12,6 +12,8 @@ export const AppContext = React.createContext<AppContextType | null>(null);
 const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => {
   const [heroes, setHeroes] = useState<IHero[]>([]);
   const [universes, setUniverses] = useState<IUniverse[]>([]);
+  const [hasFilter, setHasFilter] = useState<boolean>(false);
+  const [selectValue, setSelectValue] = useState<string>("All");
 
   async function getData() {
     const data = await apiGetAll('heroes')
@@ -35,6 +37,12 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   const context = {
     heroes,
     setHeroes,
+    universes,
+    setUniverses,
+    hasFilter,
+    setHasFilter,
+    selectValue,
+    setSelectValue,
   }
 
   return <AppContext.Provider value={ context }>{children}</AppContext.Provider>;

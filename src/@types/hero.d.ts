@@ -18,4 +18,8 @@ interface IUniverse {
 export type AppContextType = {
   heroes: IHero[];
   universes: IUniverse[];
+  hasFilter: boolean;
+  selectValue: string;
+  setHasFilter: (filter: boolean) => void;
+  setSelectValue: (value: string) => void;
 };

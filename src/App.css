@@ -1,38 +1,299 @@
-.App {
+:root {
+  --black-color: #000;
+  --grey-color: #808080;
+  --orange-color: #dda705;
+  --blue-color: #0595dd;
+}
+
+* {
+  margin: 0;
+  top: 0;
+  left: 0;
+}
+body {
+  background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.hero-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.universes-wrapper{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.menu-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.hero-card {
+  align-items: center;
+  background-image: url('../src/images/comics-background-header.webp');
+  background-position-x: -160px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 370px;
+  justify-content: space-around;
+  margin: 10px;
+  position: relative;
+  font-weight: bold;
+  width: 230px;
+}
+
+.hero-card > figure > img {
+  height: 100%;
+  object-fit: cover;
+  width: auto;
+}
+
+.hero-card-figure {
+  align-items: center;
+  background-color: var(--black-color);
+  border-radius: 100px 15px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 250px;
+  width: 200px;
+}
+
+.universe-card {
+  align-items: center;
+  background-image: url('../src/images/comics-background-header.webp');
+  background-position-y: -60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+  width: 230px;
+  font-weight: bold;
+}
+
+.header-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+}
+
+.register-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.register-header-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.display-btn {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.menu-btn {
+  margin-top: 4px;
+  color: var(--orange-color);
+  stroke: var(--black-color);
+  stroke-width: 0.5;
+  font-size: 20px;
+}
+
+.menu-btn:hover{
+  cursor: pointer;
+  color: var(--grey-color);
+}
+
+.menu-btn-universe {
+  color: var(--orange-color);
+  stroke: var(--black-color);
+  stroke-width: 0.5;
+  font-size: 20px;
+}
+
+.menu-btn-universe:hover {
+  cursor: pointer;
+  color: var(--grey-color);
+}
+
+.close-modal-btn {
+  color: var(--blue-color);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.close-modal-btn:hover {
+  cursor: pointer;
+  color: var(--grey-color);
+}
+
+.header-wrapper {
+  align-items: center;
+  background-image: url('../src/images/comics-background-header.webp');
+  background-position-y: -620px;
+  background-size: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  right: 0;
+  top: 0;
+  height: 50px;
+  width: 100%;
+}
+
+.universe-name {
+  padding-left: 35px;
+}
+
+.hero-text {
+  align-items: center;
+  background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
+  background-position-y: -60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 5px;
+  width: 80%;
+}
+
+.modal-form {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.btn-styles {
+  background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
+  background-position-y: -5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.btn-styles:hover {
+  background-image: none;
+  background-color: var(--black-color);
+  color: var(--orange-color);
+}
+
+.btn-styles::placeholder {
+  color: var(--black-color);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-styles:hover::placeholder {
+  background-color: var(--black-color);
+  color: var(--orange-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal-styles {
+  background-image: url('../src/images/comics-background-header.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modal-styles:hover {
+  background-image: none;
+  background-color: var(--black-color);
+  color: var(--blue-color);
+}
+
+.modal-styles::placeholder {
+  color: var(--black-color);
+  text-align: center;
+}
+
+.modal-styles:hover::placeholder {
+  background-color: var(--black-color);
+  color: var(--orange-color);
+}
+
+
+.filter-size{
+  width: 280px;
+}
+
+select option {
+  margin: 40px;
+  background: var(--orange-color);
+  color: var(--black-color);
+}
+
+.universe-card-delete {
+  align-items: center;
+  background-image: url('../src/images/comics-background-header.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  margin: 10px;
+  position: relative;
+  font-weight: bold;
+  width: 230px;
 }

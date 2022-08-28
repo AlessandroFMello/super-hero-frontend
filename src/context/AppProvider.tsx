@@ -15,8 +15,24 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   const [hasFilter, setHasFilter] = useState<boolean>(false);
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [selectValue, setSelectValue] = useState<string>("All");
+  const [register, setRegister] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [superHero, setSuperHero] = useState<ISuperHero>({
+    id: 1,
+    name: "",
+    universe: 1,
+    image: "",
+  });
+  const [newUniverse, setNewUniverse] = useState<IUniverse>({
+    id: 1,
+    universe: "",
+  });
+  const [isDisabledUniverse, setIsDisabledUniverse] = useState<boolean>(true);
   const [showHeroes, setShowHeroes] = useState(true);
   const [filteredUniverses, setFilteredUniverses] = useState<IUniverse[]>([]);
+  const [addHero, setAddHero] = useState<boolean>(false);
+  const [addUniverse, setAddUniverse] = useState<boolean>(false);
 
   async function getData() {
     const data = await apiGetAll('heroes')

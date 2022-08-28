@@ -15,6 +15,7 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   const [hasFilter, setHasFilter] = useState<boolean>(false);
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [selectValue, setSelectValue] = useState<string>("All");
+  const [showHeroes, setShowHeroes] = useState(true);
 
   async function getData() {
     const data = await apiGetAll('heroes')
@@ -42,8 +43,12 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
     setUniverses,
     hasFilter,
     setHasFilter,
+    filteredHeroes,
+    setFilteredHeroes,
     selectValue,
     setSelectValue,
+    showHeroes,
+    setShowHeroes,
   }
 
   return <AppContext.Provider value={ context }>{children}</AppContext.Provider>;

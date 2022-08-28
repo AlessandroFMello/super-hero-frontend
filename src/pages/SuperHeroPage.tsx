@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { AppContextType, IHero, IUniverse } from '../@types/hero';
+import DisplayBtn from '../components/DisplayBtn';
+import Header from '../components/Header';
 import HeroCard from '../components/HeroCard';
 import { AppContext } from '../context/AppProvider';
 
@@ -16,6 +18,7 @@ export default function SuperHeroPage() {
     <>
           <>
           <header className="header-wrapper">
+            <DisplayBtn />
             <Header />
           </header>
           <div className="hero-wrapper">

@@ -19,7 +19,9 @@ export type AppContextType = {
   heroes: IHero[];
   universes: IUniverse[];
   hasFilter: boolean;
+  filteredHeroes: IHero[];
   selectValue: string;
   setHasFilter: (filter: boolean) => void;
+  setFilteredHeroes: (heroes: IHero[]) => void;
   setSelectValue: (value: string) => void;
 };

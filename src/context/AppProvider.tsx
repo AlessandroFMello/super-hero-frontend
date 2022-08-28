@@ -13,6 +13,7 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   const [heroes, setHeroes] = useState<IHero[]>([]);
   const [universes, setUniverses] = useState<IUniverse[]>([]);
   const [hasFilter, setHasFilter] = useState<boolean>(false);
+  const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [selectValue, setSelectValue] = useState<string>("All");
 
   async function getData() {

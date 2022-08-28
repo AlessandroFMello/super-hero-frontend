@@ -17,17 +17,18 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
     setSuperHero,
     edit,
     setEdit,
+    getData,
   } = useContext(AppContext)  as AppContextType;
   const { id, name, heroUniverse, image } = data as IHero;
 
   const [deleteHero, setDeleteHero] = useState(false);
 
   async function deleteSuperHero() {
-    await apiDelete(`heroes/${id}`)
+    await apiDelete(`/heroes/${id}`)
   }
 
   async function getSuperHero() {
-    const hero = await apiGetAll(`heroes/${id}`)
+    const hero = await apiGetAll(`/heroes/${id}`)
     setSuperHero({
       id: id,
       name: hero.name,
@@ -93,7 +94,10 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
               <button
                 type="button"
                 className="btn-styles"
-                onClick={ () => deleteSuperHero() }
+                onClick={ () => {
+                  deleteSuperHero()
+                  getData()
+                } }
               >
                 Deletar
               </button>

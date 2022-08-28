@@ -17,6 +17,7 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
   setNewUniverse,
   editUniverse,
   setEditUniverse,
+  getUniverses,
 } = useContext(AppContext)  as AppContextType;
   const { id, universe } = data as IUniverse;
 
@@ -84,7 +85,10 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
               <button
                 type="button"
                 className="btn-styles"
-                onClick={ () => deleteUniverse() }
+                onClick={ () => {
+                  deleteUniverse()
+                  getUniverses()
+                } }
               >
                 Deletar
               </button>

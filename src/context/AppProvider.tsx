@@ -37,12 +37,12 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
   const [addUniverse, setAddUniverse] = useState<boolean>(false);
 
   async function getData() {
-    const data = await apiGetAll('heroes')
+    const data = await apiGetAll('/heroes')
     setHeroes([ ...data ]);
   }
 
   async function getUniverses() {
-    const allUniverses = await apiGetAll('universes')
+    const allUniverses = await apiGetAll('/universes')
     setUniverses([ ...allUniverses ]);
   }
 
@@ -103,11 +103,11 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
 
   useEffect(() => {
     getUniverses()
-  }, [universes])
+  }, [])
 
   useEffect(() => {
     getData()
-  }, [heroes])
+  }, [])
 
   const context = {
     heroes,

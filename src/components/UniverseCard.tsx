@@ -17,7 +17,6 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
   setNewUniverse,
   editUniverse,
   setEditUniverse,
-  getUniverses,
 } = useContext(AppContext)  as AppContextType;
   const { id, universe } = data as IUniverse;
 
@@ -42,10 +41,6 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
     }
     enableBtn();
   }, [newUniverse, setIsDisabled])
-
-  useEffect(() => {
-    getUniverses()
-  }, [getUniverses, universeToDelete])
 
   return (
     <>

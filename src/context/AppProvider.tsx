@@ -103,11 +103,11 @@ const AppProvider: React.FunctionComponent<BaseLayoutProps> = ({ children }) => 
 
   useEffect(() => {
     getUniverses()
-  }, [])
+  }, [universes])
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [heroes])
 
   const context = {
     heroes,

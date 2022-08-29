@@ -289,7 +289,7 @@ body {
 
 .modal-styles:hover::placeholder {
   background-color: var(--black-color);
-  color: var(--orange-color);
+  color: var(--blue-color);
 }
 
 .modal-styles-button  {
@@ -304,17 +304,11 @@ body {
   font-weight: bold;
 }
 
-.modal-styles-button::placeholder {
-  color: var(--black-color);
-  text-align: center;
-}
-
-.modal-styles-button:hover::placeholder {
+.modal-styles-button:hover {
+  background-image: none;
   background-color: var(--black-color);
   color: var(--orange-color);
 }
-
-
 
 .filter-size{
   width: 280px;

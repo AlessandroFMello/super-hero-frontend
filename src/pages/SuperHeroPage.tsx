@@ -324,7 +324,6 @@ export default function SuperHeroPage() {
     } else {
       setIsDisabled(true);
     }
-    console.log("infinite")
   }, [superHero, setIsDisabled, message])
 
   useEffect(() => {
@@ -333,7 +332,6 @@ export default function SuperHeroPage() {
     } else {
       setIsDisabledUniverse(true);
     }
-    console.log("infinite")
   }, [newUniverse, setIsDisabledUniverse, message])
   
   return (

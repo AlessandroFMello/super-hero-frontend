@@ -116,7 +116,7 @@ export default function SuperHeroPage() {
                 required
               />
               <button
-                className="modal-styles"
+                className="modal-styles-button"
                 type='submit'
                 disabled={isDisabled}
               >
@@ -152,7 +152,7 @@ export default function SuperHeroPage() {
                   required
                 />
                 <button
-                  className="modal-styles"
+                  className="modal-styles-button"
                     type='submit'
                     disabled={isDisabled}
                   >
@@ -191,7 +191,10 @@ export default function SuperHeroPage() {
   function newHeroForm() {
     return(
       <div className="form-group">
-        <form onSubmit={ (e) => onSubmitHero(e) }>
+        <form
+          className="form-wrapper"
+          onSubmit={ (e) => onSubmitHero(e) }
+          >
           <select
             className="modal-styles"
             onChange={ (e) => onSelectChange(e) }
@@ -260,7 +263,10 @@ export default function SuperHeroPage() {
   function newUniverseForm() {
     return (
       <div className="form-group">
-        <form onSubmit={ (e) => onSubmitUniverse(e) }>
+        <form
+          className="form-wrapper"
+          onSubmit={ (e) => onSubmitUniverse(e) }
+          >
           <input
             className="modal-styles"
             type="text"
@@ -340,30 +346,32 @@ export default function SuperHeroPage() {
         showHeroes
         ? (
           <>
-          <header className="header-wrapper">
-            <DisplayBtn />
-            <Header />
-            <RegisterRenderer />
-          </header>
-          <div className="hero-wrapper">
-            {
-              hasFilter
-              ? (filteredHeroes.map((data: IHero) => (
-                <div
-                  key={data.id}
-                >
-                  <HeroCard data={ data } />
-                </div>
-              )))
-              : (heroes.map((data: IHero) => (
-                <div
-                  key={data.id}
-                >
-                  <HeroCard data={ data } />
-                </div>
-              )))
-            }
-          </div>
+            <header className="header-wrapper">
+              <DisplayBtn />
+              <Header />
+              <RegisterRenderer />
+            </header>
+            <div className="wrapper-container">
+              <div className="hero-wrapper">
+                {
+                  hasFilter
+                  ? (filteredHeroes.map((data: IHero) => (
+                    <div
+                      key={data.id}
+                    >
+                      <HeroCard data={ data } />
+                    </div>
+                  )))
+                  : (heroes.map((data: IHero) => (
+                    <div
+                      key={data.id}
+                    >
+                      <HeroCard data={ data } />
+                    </div>
+                  )))
+                }
+              </div>
+            </div>
           </>
           )
         : (

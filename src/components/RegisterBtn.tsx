@@ -18,7 +18,7 @@ export default function RegisterBtn() {
       setAddUniverse,
      } = useContext(AppContext)  as AppContextType;
   return (
-    <div className="register-header-wrapper ">
+    <>
       <button
         type='button'
         className="btn-styles"
@@ -65,6 +65,6 @@ export default function RegisterBtn() {
       >
         Novo Universo
       </button>
-    </div>
+    </>
   )
 }

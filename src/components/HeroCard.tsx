@@ -24,7 +24,11 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
   const [deleteHero, setDeleteHero] = useState(false);
 
   async function deleteSuperHero() {
-    await apiDelete(`/heroes/${id}`)
+    const response = await apiDelete(`/heroes/${id}`)
+
+    if (response.status === 200) {
+      window.location.reload();
+    }
   }
 
   async function getSuperHero() {

@@ -24,7 +24,11 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
   const [universeToDelete, setUniverseToDelete] = useState(false);
 
   async function deleteUniverse() {
-    await apiDelete(`/universes/${id}`)
+    const response = await apiDelete(`/universes/${id}`)
+
+    if (response.status === 200) {
+      window.location.reload();
+    }
   }
 
   async function getUniverse() {

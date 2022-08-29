@@ -5,5 +5,6 @@ export default async function apiDelete(endpoint: string) {
     method: 'DELETE',
   });
 
+  console.log(request);
   return request;
 }

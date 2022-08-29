@@ -9,6 +9,8 @@
   margin: 0;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
 }
 body {
   background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
@@ -25,9 +27,12 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 15%;
   margin-top: 10px;
-}
+  height: 100%;
+  width:70%;
+  }
 
 .universes-wrapper{
   align-items: center;
@@ -38,7 +43,6 @@ body {
 }
 
 .menu-wrapper {
-  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -47,6 +51,7 @@ body {
   right: 0px;
   margin-bottom: 5px;
   padding-left: 10px;
+  width: 50px;
 }
 
 .hero-card {
@@ -88,8 +93,7 @@ body {
   align-items: center;
   background-image: url('../src/images/comics-background-header.webp');
   background-position-y: -60px;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   border: 1px solid var(--black-color);
   border-radius: 15px;
   display: flex;
@@ -100,14 +104,15 @@ body {
   position: relative;
   width: 230px;
   font-weight: bold;
+  height: 100%;
 }
 
 .header-wrapper {
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  padding: 5px;
+  width: 100%;
 }
 
 .register-wrapper {
@@ -129,6 +134,23 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 30%;
+}
+
+.filter-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+}
+
+.register-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%; 
 }
 
 .menu-btn {
@@ -183,6 +205,11 @@ body {
 
 .universe-name {
   padding-left: 35px;
+}
+
+.universe-name:hover {
+  color: var(--orange-color);
+  cursor: pointer;
 }
 
 .hero-text {
@@ -268,9 +295,26 @@ body {
 
 .modal-styles:hover::placeholder {
   background-color: var(--black-color);
-  color: var(--orange-color);
+  color: var(--blue-color);
 }
 
+.modal-styles-button  {
+  background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.modal-styles-button:hover {
+  background-image: none;
+  background-color: var(--black-color);
+  color: var(--orange-color);
+}
 
 .filter-size{
   width: 280px;
@@ -296,4 +340,45 @@ select option {
   position: relative;
   font-weight: bold;
   width: 230px;
+}
+
+@media (max-width:1150px) {
+  .header-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.universe-card-renderer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-message {
+  background-color: var(--black-color);
+  border: 1px solid var(--orange-color);
+  border-radius: 15px;
+  color: var(--orange-color);
+  font-weight: bold;
+  padding: 10px;
+}
+
+.form-group {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

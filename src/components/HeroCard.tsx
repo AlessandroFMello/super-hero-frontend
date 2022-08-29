@@ -12,23 +12,28 @@ interface BaseLayoutProps {
 
 const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
   const {
-    getData,
     setIsDisabled,
     superHero,
     setSuperHero,
     edit,
     setEdit,
+    getData,
+    message,
   } = useContext(AppContext)  as AppContextType;
   const { id, name, heroUniverse, image } = data as IHero;
 
   const [deleteHero, setDeleteHero] = useState(false);
 
   async function deleteSuperHero() {
-    await apiDelete(`heroes/${id}`)
+    const response = await apiDelete(`/heroes/${id}`)
+
+    if (response.status === 200) {
+      window.location.reload();
+    }
   }
 
   async function getSuperHero() {
-    const hero = await apiGetAll(`heroes/${id}`)
+    const hero = await apiGetAll(`/heroes/${id}`)
     setSuperHero({
       id: id,
       name: hero.name,
@@ -39,18 +44,14 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
 
   useEffect(() => {
     function enableBtn() {
-      if (superHero.image !== "" && superHero.name !== "") {
+      if (superHero.image !== "" && superHero.name !== "" && message === "") {
         setIsDisabled(false);
       } else {
         setIsDisabled(true);
       }
     }
     enableBtn();
-  }, [superHero, setIsDisabled])
-
-  useEffect(() => {
-    getData()
-  }, [getData, deleteHero])
+  }, [superHero, setIsDisabled, message])
 
   return (
     <>
@@ -98,7 +99,10 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
               <button
                 type="button"
                 className="btn-styles"
-                onClick={ () => deleteSuperHero() }
+                onClick={ () => {
+                  deleteSuperHero()
+                  getData()
+                } }
               >
                 Deletar
               </button>

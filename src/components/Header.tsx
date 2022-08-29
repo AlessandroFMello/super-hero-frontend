@@ -65,26 +65,24 @@ export default function Header() {
 
   return (
     <div className="filter-wrapper">
-      <div>
-        <select
-          className="btn-styles"
-          onChange={ (e) => onSelectChange(e) }
-          value={selectValue}
-        >
-          <option value="All">Todos</option>
-          {
-            universes.map(({ universe }) => (
-              <option key={universe} value={universe}>{universe}</option>
-            ))
-          }
-        </select>
-        <input
-          className="btn-styles"
-          type="text"
-          placeholder="Filtrar por nome"
-          onChange={ (e) => onInputChange(e) }  
-        />
-      </div>
+      <select
+        className="btn-styles"
+        onChange={ (e) => onSelectChange(e) }
+        value={selectValue}
+      >
+        <option value="All">Todos</option>
+        {
+          universes.map(({ universe }) => (
+            <option key={universe} value={universe}>{universe}</option>
+          ))
+        }
+      </select>
+      <input
+        className="btn-styles"
+        type="text"
+        placeholder="Filtrar por nome"
+        onChange={ (e) => onInputChange(e) }  
+      />
     </div>
   )
 }

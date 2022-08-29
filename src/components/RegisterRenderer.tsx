@@ -37,7 +37,7 @@ export default function RegisterRenderer() {
   }, [newUniverse, setIsDisabledUniverse, message])
 
   return (
-    <div>
+    <div className="register-wrapper">
       <RegisterBtn />
     </div>
   )

@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+## Super Hero Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Caso queira testar a aplicação sem rodá-la localmente, ao fim do README.md constam os links do deploy da API** 
 
-## Available Scripts
+## Requisitos
+* Linux / WSL Environment
 
-In the project directory, you can run:
+# Instruções para iniciar a configuração do projeto para rodá-lo localmente:
+
+1. Clone o repositório
+  * http: `git clone https://github.com/AlessandroFMello/super-hero-frontend.git`.
+  ou
+  * ssh: `git@github.com:AlessandroFMello/super-hero-frontend.git`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd super-hero-frontend`
+
+2. Instale as dependências
+  * `npm install`
+
+## Você está pronto para rodar a aplicação:
+
+## Scripts Disponíveis
+
+No diretório do projeto, você pode rodar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Roda o app em modo de desenvolvimento.\
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
-### `npm test`
+você deverá rodá-lo novamente para ver as alterações.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Caso queira autimatizar este processo e recarregar a página toda vez que fizer alguma alteração:
+ *Altere o comando "scripts" no package.json para "react-scripts start"
+ 
+Agora a página irá recarregar se você fizer aterações.\
+Você também verá erros de lint no console.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builda o app para produção na pasta`build`.\
+Ele agrupa corretamente o React no modo de produção e otimiza a compilação para o melhor desempenho.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A compilação é reduzida e os nomes dos arquivos incluem os hashes.\
+Seu aplicativo está pronto para deploy!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Veja a seção sobre [deployment](https://facebook.github.io/create-react-app/docs/deployment) para mais informações.
 
-### `npm run eject`
+### Rotas da API (localmente)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* [http://localhost:3000](http://localhost:3000)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Rotas da API (remotamente)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [https://alessandro-super-hero-frontend.herokuapp.com/](https://alessandro-super-hero-frontend.herokuapp.com/)

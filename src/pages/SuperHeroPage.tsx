@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContextType, IHero, IUniverse } from '../@types/hero';
 import DisplayBtn from '../components/DisplayBtn';
 import Header from '../components/Header';
@@ -37,6 +37,9 @@ export default function SuperHeroPage() {
     addUniverse,
     setAddHero,
     setAddUniverse,
+    setMessage,
+    setIsDisabled,
+    setIsDisabledUniverse,
   } = useContext(AppContext) as AppContextType;
 
 
@@ -187,7 +190,7 @@ export default function SuperHeroPage() {
 
   function newHeroForm() {
     return(
-      <>
+      <div className="form-group">
         <form onSubmit={ (e) => onSubmitHero(e) }>
           <select
             className="modal-styles"
@@ -229,9 +232,12 @@ export default function SuperHeroPage() {
         </form>
         <AiOutlineClose
           className="close-modal-btn"
-          onClick={ () => setAddHero(!addHero) }
+          onClick={ () => {
+            setAddHero(!addHero)
+            setMessage("")
+          } }
         />
-      </>
+      </div>
     );
   }
 
@@ -253,7 +259,7 @@ export default function SuperHeroPage() {
 
   function newUniverseForm() {
     return (
-      <>
+      <div className="form-group">
         <form onSubmit={ (e) => onSubmitUniverse(e) }>
           <input
             className="modal-styles"
@@ -272,22 +278,27 @@ export default function SuperHeroPage() {
         </form>
         <AiOutlineClose
           className="close-modal-btn"
-          onClick={ () => setAddUniverse(!addUniverse) }
+          onClick={ () => {
+            setAddUniverse(!addUniverse)
+            setMessage("")
+          } }
         />
-      </>
+      </div>
     );
   }
 
   function registerRender() {
     if (register === "hero") {
       return(
-        <section
+      <section
           className="modal-form"
         >
-          { newHeroForm() }
-          {
-            message !== "" && <div>{message}</div>
-          }
+          <div className="modal-wrapper">
+            { newHeroForm() }
+            {
+              message !== "" && <div className="modal-message">{message}</div>
+            }
+          </div>
         </section>
       );
     }
@@ -296,14 +307,34 @@ export default function SuperHeroPage() {
         <section
           className="modal-form"
         >
-          { newUniverseForm() }
-          {
-            message !== "" && <div>{message}</div>
-          }
+          <div className="modal-wrapper">
+            { newUniverseForm() }
+            {
+              message !== "" && <div className="modal-message">{message}</div>
+            }
+          </div>
         </section>
       );
     }
   }
+
+  useEffect(() => {
+    if (superHero.name !== "" && superHero.image !== "" && message === "") {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+    console.log("infinite")
+  }, [superHero, setIsDisabled, message])
+
+  useEffect(() => {
+    if ( newUniverse.universe !== "" && message === "") {
+      setIsDisabledUniverse(false);
+    } else {
+      setIsDisabledUniverse(true);
+    }
+    console.log("infinite")
+  }, [newUniverse, setIsDisabledUniverse, message])
   
   return (
     <>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BsPencilFill } from "react-icons/bs";
 import { BsFillTrashFill } from 'react-icons/bs';
 
-import { AppContextType, IUniverse } from '../@types/hero';
+import { AppContextType, IUniverse, ISuperHero } from '../@types/hero';
 import { AppContext } from '../context/AppProvider';
 import apiDelete from '../services/apiDelete';
 import apiGetAll from '../services/apiGetAll';
@@ -18,10 +18,13 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
   editUniverse,
   setEditUniverse,
   getUniverses,
+  message,
 } = useContext(AppContext)  as AppContextType;
   const { id, universe } = data as IUniverse;
 
   const [universeToDelete, setUniverseToDelete] = useState(false);
+  const [universeHeroes, setUniverseHeroes] = useState<ISuperHero[]>([]);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   async function deleteUniverse() {
     const response = await apiDelete(`/universes/${id}`)
@@ -36,16 +39,23 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
     setNewUniverse({ id: universeToEdit.id , universe: universeToEdit.universe });
   }
 
+  async function getAllHeroesFromUniverse() {
+    const request = await apiGetAll(`/universes/${id}`);
+    const universeHeroes = request.universeHeroes;
+
+    setUniverseHeroes([ ...universeHeroes ])
+  }
+
   useEffect(() => {
     function enableBtn() {
-      if (newUniverse.universe !== "") {
+      if (newUniverse.universe !== "" && message === "") {
         setIsDisabled(false);
       } else {
         setIsDisabled(true);
       }
     }
     enableBtn();
-  }, [newUniverse, setIsDisabled])
+  }, [message, newUniverse, setIsDisabled])
 
   return (
     <>
@@ -53,8 +63,6 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
       {
         !universeToDelete ? (
           <div className="universe-card">
-            <div></div>
-            <div className="universe-name">{universe}</div>
             <div className="menu-wrapper">
               <BsFillTrashFill
                   type="button"
@@ -71,6 +79,30 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
                     setEditUniverse(!editUniverse)
                   }}
                 />
+            </div>
+            <div className="universe-card-renderer">
+              <div
+                className="universe-name"
+                onClick={ () => {
+                  getAllHeroesFromUniverse();
+                  setIsClicked(!isClicked)
+                }}
+              >
+                {universe}
+              </div>
+              <div>
+                {
+                  isClicked && (
+                    <ul>
+                      {
+                        universeHeroes.map((hero) => (
+                          <li key={hero.id}>{hero.name}</li>
+                        ))
+                      }
+                    </ul>
+                  )
+                }
+              </div>
             </div>
           </div>
         ) : (

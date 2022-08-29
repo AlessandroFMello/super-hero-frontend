@@ -18,6 +18,7 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
     edit,
     setEdit,
     getData,
+    message,
   } = useContext(AppContext)  as AppContextType;
   const { id, name, heroUniverse, image } = data as IHero;
 
@@ -43,14 +44,14 @@ const HeroCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {
 
   useEffect(() => {
     function enableBtn() {
-      if (superHero.image !== "" && superHero.name !== "") {
+      if (superHero.image !== "" && superHero.name !== "" && message === "") {
         setIsDisabled(false);
       } else {
         setIsDisabled(true);
       }
     }
     enableBtn();
-  }, [superHero, setIsDisabled])
+  }, [superHero, setIsDisabled, message])
 
   return (
     <>

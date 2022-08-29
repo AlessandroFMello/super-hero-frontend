@@ -1,3 +1,24 @@
+## Super Hero API
+
+**Caso queira testar a api sem rodá-la localmente, ao fim do README.md constam os links do deploy da API** 
+
+## Requisitos
+* Linux / WSL Environment
+
+# Instruções para iniciar a configuração do projeto para rodá-lo localmente:
+
+1. Clone o repositório
+  * http: `git clone https://github.com/AlessandroFMello/super-hero-frontend.git`.
+  ou
+  * ssh: `git@github.com:AlessandroFMello/super-hero-frontend.git`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd super-hero-frontend`
+
+2. Instale as dependências
+  * `npm install`
+
+## Você está pronto para rodar a aplicação:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -29,18 +50,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Rotas da API (localmente)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Rotas da API (remotamente)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [https://alessandro-super-hero-frontend.herokuapp.com/](https://alessandro-super-hero-frontend.herokuapp.com/)

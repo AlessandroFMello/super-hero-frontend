@@ -1,4 +1,4 @@
-## Super Hero API
+## Super Hero Front-End
 
 **Caso queira testar a api sem rodá-la localmente, ao fim do README.md constam os links do deploy da API** 
 

@@ -1,6 +1,6 @@
 ## Super Hero Front-End
 
-**Caso queira testar a api sem rodá-la localmente, ao fim do README.md constam os links do deploy da API** 
+**Caso queira testar a aplicação sem rodá-la localmente, ao fim do README.md constam os links do deploy da API** 
 
 ## Requisitos
 * Linux / WSL Environment
@@ -19,37 +19,33 @@
 
 ## Você está pronto para rodar a aplicação:
 
-# Getting Started with Create React App
+## Scripts Disponíveis
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+No diretório do projeto, você pode rodar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Roda o app em modo de desenvolvimento.\
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Abra [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
 
-### `npm test`
+você deverá rodá-lo novamente para ver as alterações.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Caso queira autimatizar este processo e recarregar a página toda vez que fizer alguma alteração:
+ *Altere o comando "scripts" no package.json para "react-scripts start"
+ 
+Agora a página irá recarregar se você fizer aterações.\
+Você também verá erros de lint no console.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builda o app para produção na pasta`build`.\
+Ele agrupa corretamente o React no modo de produção e otimiza a compilação para o melhor desempenho.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A compilação é reduzida e os nomes dos arquivos incluem os hashes.\
+Seu aplicativo está pronto para deploy!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
+Veja a seção sobre [deployment](https://facebook.github.io/create-react-app/docs/deployment) para mais informações.
 
 ### Rotas da API (localmente)
 

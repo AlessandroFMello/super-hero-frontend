@@ -24,11 +24,11 @@ const UniverseCard: React.FunctionComponent<BaseLayoutProps> = ({ data }) => {  
   const [universeToDelete, setUniverseToDelete] = useState(false);
 
   async function deleteUniverse() {
-    await apiDelete(`universes/${id}`)
+    await apiDelete(`/universes/${id}`)
   }
 
   async function getUniverse() {
-    const universeToEdit = await apiGetAll(`universes/${id}`)
+    const universeToEdit = await apiGetAll(`/universes/${id}`)
     setNewUniverse({ id: universeToEdit.id , universe: universeToEdit.universe });
   }
 

@@ -49,7 +49,7 @@ export default function SuperHeroPage() {
       imageUrl: superHero.image,
     }
 
-    const updatedHero = await apiUpdate(updatedData, `heroes/${superHero.id}`);
+    const updatedHero = await apiUpdate(updatedData, `/heroes/${superHero.id}`);
 
     if (updatedHero) {
       window.location.reload();
@@ -65,7 +65,7 @@ export default function SuperHeroPage() {
       universe: newUniverse.universe,
     }
 
-    const updatedUniverse = await apiUpdate(updatedData, `universes/${newUniverse.id}`);
+    const updatedUniverse = await apiUpdate(updatedData, `/universes/${newUniverse.id}`);
 
     if (updatedUniverse) {
       window.location.reload();
@@ -178,7 +178,7 @@ export default function SuperHeroPage() {
       imageUrl: superHero.image,
     }
 
-    const newHero = await apiCreate(heroData, "heroes");
+    const newHero = await apiCreate(heroData, "/heroes");
 
     if (newHero) {
       window.location.reload();
@@ -220,7 +220,7 @@ export default function SuperHeroPage() {
             required
           />
           <button
-            className="modal-styles"
+            className="modal-styles-button"
             type='submit'
             disabled={isDisabled}
           >
@@ -243,7 +243,7 @@ export default function SuperHeroPage() {
       universe: newUniverse.universe,
     }
 
-    const newHero = await apiCreate(universeData, "universes");
+    const newHero = await apiCreate(universeData, "/universes");
 
     if (newHero) {
       window.location.reload();
@@ -263,7 +263,7 @@ export default function SuperHeroPage() {
             required
           />
           <button
-            className="modal-styles"
+            className="modal-styles-button"
             type='submit'
             disabled={isDisabledUniverse}
           >

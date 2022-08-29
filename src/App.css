@@ -9,6 +9,8 @@
   margin: 0;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
 }
 body {
   background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
@@ -25,9 +27,12 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 20%;
   margin-top: 10px;
-}
+  height: 100%;
+  width: 66%;
+  }
 
 .universes-wrapper{
   align-items: center;
@@ -38,7 +43,6 @@ body {
 }
 
 .menu-wrapper {
-  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -107,7 +111,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px;
+  width: 100%;
 }
 
 .register-wrapper {
@@ -129,6 +133,23 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 30%;
+}
+
+.filter-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+}
+
+.register-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%; 
 }
 
 .menu-btn {
@@ -270,6 +291,29 @@ body {
   background-color: var(--black-color);
   color: var(--orange-color);
 }
+
+.modal-styles-button  {
+  background-image: url('../src/images/red-comic-halftone-background-free-vector.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--black-color);
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.modal-styles-button::placeholder {
+  color: var(--black-color);
+  text-align: center;
+}
+
+.modal-styles-button:hover::placeholder {
+  background-color: var(--black-color);
+  color: var(--orange-color);
+}
+
 
 
 .filter-size{
